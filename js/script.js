@@ -552,3 +552,5 @@ if (summaryTableBody) {
       "Absent": s.absent,
       "On Duty": s.onduty,
       "Attendance %": s.percentage
+      document.addEvenListener("DOMContentLoaded", init);
+    }
