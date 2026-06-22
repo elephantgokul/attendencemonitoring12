@@ -590,3 +590,25 @@ if (summaryTableBody) {
     const csv = rowsToCSV(headers, data);
     downloadFile("monthly_attendance_report.csv", csv, "text/csv;charset=utf-8;");
   }
+   function init() {
+    setHeaderDate();
+    loadTodaySummary();
+    loadStudentSummary();
+
+    refreshBtn.addEventListener("click", loadTodaySummary);
+    if (logoutBtn) logoutBtn.addEventListener("click", logout);
+
+    searchAdvisor.addEventListener("input", renderSummaryTable);
+    lowAttendanceToggle.addEventListener("change", renderSummaryTable);
+
+    exportCsvBtn.addEventListener("click", exportCsv);
+    exportExcelBtn.addEventListener("click", exportExcel);
+    printBtn.addEventListener("click", () => window.print());
+    exportPdfBtn.addEventListener("click", exportPdf);
+
+    loadReportBtn.addEventListener("click", loadMonthlyReport);
+    exportMonthlyCsvBtn.addEventListener("click", exportMonthlyCsv);
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+}
